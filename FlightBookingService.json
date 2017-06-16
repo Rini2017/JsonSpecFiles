@@ -128,9 +128,6 @@
         },
         "BookingClass": {
           "type": "string"
-        },
-        "Status": {
-          "type": "string"
         }
       },
       "type": "object"
