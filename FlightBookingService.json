@@ -120,6 +120,15 @@
         "RouteId": {
           "type": "string"
         },
+        "BookingDate": {
+          "type": "string"
+        },
+        "TravelDate": {
+          "type": "string"
+        },
+        "BookingClass": {
+          "type": "string"
+        },
         "Status": {
           "type": "string"
         }
@@ -152,6 +161,15 @@
           "type": "string"
         },
         "RouteId": {
+          "type": "string"
+        },
+        "BookingDate": {
+          "type": "string"
+        },
+        "TravelDate": {
+          "type": "string"
+        },
+        "BookingClass": {
           "type": "string"
         },
         "Status": {
