@@ -1,0 +1,164 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Flight Booking",
+    "version": "1.0.0",
+    "title": "Flight Booking Service"
+  },
+  "basePath": "/ipm-tibco-delta/airline",
+  "paths": {
+    "/bookFlight": {
+      "post": {
+        "tags": [
+          "BookFlight"
+        ],
+        "summary": "book flight for passenger",
+        "operationId": "bookFlight",
+        "description": "Book flight for a specific route\n",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/AirlineBookingRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully Booked",
+            "schema": {
+              "$ref": "#/definitions/AirlineBookingResponse"
+            }
+          },
+          "400": {
+            "description": "Bad input parameter"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    },
+    "/getBookingStatus": {
+      "get": {
+        "tags": [
+          "GetFlightBookingStatus"
+        ],
+        "summary": "Check flight booking staus",
+        "operationId": "getBookingStatus",
+        "description": "Check flight booking staus for specific reservation ID\n",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "reservationId",
+            "description": "ReservationId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response",
+            "schema": {
+              "$ref": "#/definitions/BookingStatusResponse"
+            }
+          },
+          "400": {
+            "description": "Bad input parameter"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "AirlineBookingRequest": {
+      "properties": {
+        "Email": {
+          "type": "string"
+        },
+        "NoOfPassenger": {
+          "type": "string"
+        },
+        "PhNo": {
+          "type": "string"
+        },
+        "Price": {
+          "type": "string"
+        },
+        "RouteId": {
+          "type": "string"
+        },
+        "Status": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "AirlineBookingResponse": {
+      "properties": {
+        "ReservationID": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "BookingStatusResponse": {
+      "properties": {
+        "ContactNo": {
+          "type": "string"
+        },
+        "Email": {
+          "type": "string"
+        },
+        "NoOfPassenger": {
+          "type": "string"
+        },
+        "Price": {
+          "type": "string"
+        },
+        "ReservationId": {
+          "type": "string"
+        },
+        "RouteId": {
+          "type": "string"
+        },
+        "Status": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  }
+}
